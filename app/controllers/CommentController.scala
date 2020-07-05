@@ -23,7 +23,7 @@ class CommentController @Inject()(val controllerComponents: ControllerComponents
    *
    * @return JSON object with saved comment
    */
-  def createComment: Action[AnyContent] = Action.async { request =>
+  def createComment(): Action[AnyContent] = Action.async { request =>
     val optionalComment = mapToModel(request)
 
     optionalComment match {
@@ -94,7 +94,8 @@ class CommentController @Inject()(val controllerComponents: ControllerComponents
    * Deletes comment
    *
    * @param id comment id
-   * @return
+   *
+   * @return Ok or Fail response
    */
   def deleteComment(id: Long): Action[AnyContent] = Action.async {
     commentService.delete(id)
