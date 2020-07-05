@@ -1,8 +1,7 @@
 ###### Installation
-1) Install sbt if needed
-2) Execute from terminal:
-    - sbt clean docker:publishLocal
-    - docker-compose up
+1) Install **docker** & **docker-compose** if needed
+2) From main project directory, execute following command:
+    - **docker-compose up**
     
 ###### Usage
 
@@ -28,8 +27,8 @@
     - GET localhost:9000/comments?order=natural&filter=xyz&prefix=abc,
         where all query parameters are optional.
     - Parameters description:
-        1) order - used for ordering comments lexicographically
+        1) **order** - used for ordering comments lexicographically
          by their content. It can be either 'natural' or 'reverse'.
-        2) filter - used for to filter comments by those that contain
+        2) **filter** - used for to filter comments by those that contain
          a string (nevermind in uppercase or lowercase).
-        3) prefix - a prefix which will be added to every listed comment.
+        3) **prefix** - a prefix which will be added to every listed comment.

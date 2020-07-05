@@ -2,7 +2,7 @@ version: '3'
 
 services:
   app:
-    image: commentapi:1.0
+    image: maciej197/commentapi:1.0
     restart: always
     ports:
       - "9000:9000"
