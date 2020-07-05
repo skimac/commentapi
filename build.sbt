@@ -1,11 +1,25 @@
 name := """commentapi"""
 organization := "maciej"
 
-version := "1.0-SNAPSHOT"
+version := "1.0"
 
-lazy val root = (project in file(".")).enablePlugins(PlayScala)
+maintainer := "Maciej Szklarzewski <szklarzewski.maciej@gmail.com>"
+maintainer in Debian := "Maciej Szklarzewski <szklarzewski.maciej@gmail.com>"
+maintainer in Linux := "Maciej Szklarzewski <szklarzewski.maciej@gmail.com>"
+
+packageSummary := "Comments REST API with Play"
+packageDescription := """Comments REST API with Play"""
+
+lazy val root = (project in file("."))
+  .enablePlugins(PlayScala)
+  .enablePlugins(UniversalPlugin)
+  .enablePlugins(DockerPlugin)
 
 scalaVersion := "2.13.2"
+
+artifactName := { (sv: ScalaVersion, module: ModuleID, artifact: Artifact) =>
+  artifact.name + "." + artifact.extension
+}
 
 libraryDependencies += guice
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
